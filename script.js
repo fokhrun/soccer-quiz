@@ -1,12 +1,29 @@
 // Questions and Answers
 const questions = [
     {
+        question: "Which country won the 2010 FIFA World Cup?",
+        options: ["Germany", "Brazil", "France", "Spain"],
+        correctAnswer: "Spain",
+        image: "images/spain.jpg"
+    },
+    {
+        question: "Which country won the 2014 FIFA World Cup?",
+        options: ["Germany", "Brazil", "France", "Spain"],
+        correctAnswer: "Germany",
+        image: "images/germany.jpg"
+    },
+    {
         question: "Which country won the 2018 FIFA World Cup?",
         options: ["Germany", "Brazil", "France", "Spain"],
         correctAnswer: "France",
         image: "images/france.jpg"
     },
-    // Add more questions here
+    {
+        question: "Which country won the 2022 FIFA World Cup?",
+        options: ["Germany", "Argentina", "France", "Spain"],
+        correctAnswer: "Argentina",
+        image: "images/argentina.jpg"
+    },
 ];
 
 let currentQuestionIndex = 0;
