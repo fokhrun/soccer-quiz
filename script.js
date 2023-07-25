@@ -1,4 +1,5 @@
 /*jshint esversion: 6 */
+
 // Sample quiz data
 
 const quizData = [
@@ -22,35 +23,39 @@ const quizData = [
         options: ["Germany", "Argentina", "France", "Spain"],
         correctAnswer: "Argentina"
     },
-  ];
-  
-  const UserSection = document.getElementById("user-section");
-  const quizContainer = document.getElementById("quiz-container");
-  const resultContainer = document.getElementById("result-container");
-  const scorecardContainer = document.getElementById("scorecard-container");
-  const feedbackContainer = document.getElementById("feedback-container");
+];
 
-  const questionElement = document.getElementById("question");
-  const optionsElement = document.getElementById("options");
-  const finalResultsList = document.getElementById("results");
-  
-  const submitButton = document.getElementById("submit-btn");
-  const restartButton = document.getElementById("restart-btn");
-  
-  const finalButton = document.getElementById("final-btn");
-  const submitFeedbackButton = document.getElementById("submit-feedback-btn");
-  
-  quizContainer.style.display = "none";
-  resultContainer.style.display = "none";
-  scorecardContainer.style.display = "none";
-  feedbackContainer.style.display = "none";
-  
-  let currentQuestion = 0;
-  let score = 0;
-  let username = "";
-  let incorrectAnswers = [];
+// Variables used in the code
 
-  function startQuiz() {
+const UserSection = document.getElementById("user-section");
+const quizContainer = document.getElementById("quiz-container");
+const resultContainer = document.getElementById("result-container");
+const scorecardContainer = document.getElementById("scorecard-container");
+const feedbackContainer = document.getElementById("feedback-container");
+
+const questionElement = document.getElementById("question");
+const optionsElement = document.getElementById("options");
+const finalResultsList = document.getElementById("results");
+  
+const submitButton = document.getElementById("submit-btn");
+const restartButton = document.getElementById("restart-btn"); 
+const finalButton = document.getElementById("final-btn");
+const submitFeedbackButton = document.getElementById("submit-feedback-btn");
+
+// initialize starter display
+quizContainer.style.display = "none";
+resultContainer.style.display = "none";
+scorecardContainer.style.display = "none";
+feedbackContainer.style.display = "none";
+  
+let currentQuestion = 0;
+let score = 0;
+let username = "";
+let incorrectAnswers = [];
+
+// Event handling functions
+
+function startQuiz() {
     username = document.getElementById("username").value;
     if (!username) {
         alert("Please enter a username before starting the quiz.");
@@ -82,7 +87,9 @@ function showQuestion() {
   
 function checkAnswer() {
     const selectedOption = document.querySelector('input[name="answer"]:checked');
+    
     if (!selectedOption) return;
+    
     resultContainer.style.display = "block";
     const userAnswer = selectedOption.value;
     const currentQuizData = quizData[currentQuestion];
@@ -105,10 +112,11 @@ function checkAnswer() {
     else {
         submitButton.style.display = "none";
         showScoreCard();
-    } 
+    }
+
   }
 
-  function restartQuiz() {
+function restartQuiz() {
     currentQuestion = 0;
     score = 0;
     incorrectAnswers = [];
@@ -116,10 +124,11 @@ function checkAnswer() {
     scorecardContainer.style.display = "none";
     restartButton.style.display = "none";
     finalButton.style.display = "none";
-    showQuestion();
-  }
 
-  function showScoreCard() {
+    showQuestion();
+}
+
+function showScoreCard() {
     finalButton.style.display = "none";
     resultContainer.style.display = "block";
     const scorecardContainer = document.getElementById("scorecard");
@@ -147,23 +156,26 @@ function checkAnswer() {
     const scorecardContainerDiv = document.getElementById("scorecard-container");
     scorecardContainerDiv.style.display = "block";
     feedbackContainer.style.display = "block";
-  }
+}
   
-  function submitFeedback() {
+function submitFeedback() {
     const feedbackTextarea = document.getElementById("feedback-textarea");
+    
     // Perform any action with the feedback, such as sending it to a server
     alert(`${username} Thank you for your feedback!`);
+    
     // Clear the feedback text area
     feedbackTextarea.value = "";
     feedbackContainer.style.display = "none";
+}
 
-  }
+// Event listeners
+
+submitButton.addEventListener("click", checkAnswer);
+restartButton.addEventListener("click", restartQuiz);
+finalButton.addEventListener("click", showScoreCard);
+submitFeedbackButton.addEventListener("click", submitFeedback);
   
-  submitButton.addEventListener("click", checkAnswer);
-  restartButton.addEventListener("click", restartQuiz);
-  finalButton.addEventListener("click", showScoreCard);
-  submitFeedbackButton.addEventListener("click", submitFeedback);
   
-  //showQuestion();
-  startQuiz();
+startQuiz();
   
