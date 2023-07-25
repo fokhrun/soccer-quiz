@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Soccer Quiz</title>
-        <link
-          href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
-          rel="stylesheet"
-        />
-        <link rel="stylesheet" href="style.css" />
-      </head>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Soccer Quiz</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
 <body>
     <header>
         <h1>Soccer Quiz</h1>
@@ -18,19 +17,20 @@
         </div>
     </header>
     
-    <main id="quiz-section" style="display: none;">
-        <div id="question"></div>
-        <div id="options"></div>
-        <div id="feedback"></div>
-        <button onclick="nextQuestion()" id="next-btn" style="display: none;">Next</button>
-    </main>
-
-    <div id="score-section" style="display: none;">
-        <h2>Quiz Completed!</h2>
-        <p>Your score: <span id="score">0</span></p>
-        <button onclick="resetQuiz()">Play Again</button>
+  <div class="container">
+    <div id="quiz-container">
+      <div id="question"></div>
+      <div id="options"></div>
+      <button id="submit-btn">Submit</button>
     </div>
-
-    <script src="script.js"></script>
+    
+    <div id="result-container">
+      <h2>Results:</h2>
+      <ul id="results"></ul>
+      <button id="restart-btn">Restart Quiz</button>
+    </div>
+  </div>
+  <script src="script.js"></script>
 </body>
+
 </html>
