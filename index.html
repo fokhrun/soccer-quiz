@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Soccer Quiz</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -23,11 +23,16 @@
       <div id="options"></div>
       <button id="submit-btn">Submit</button>
     </div>
-    
+
     <div id="result-container">
-      <h2>Results:</h2>
+      <h2>Results</h2>
       <ul id="results"></ul>
       <button id="restart-btn">Restart Quiz</button>
+      <button id="final-btn">Final Result</button>
+      <div id="feedback-container">
+        <h2>Feedback:</h2>
+        <textarea id="feedback-textarea" rows="4" placeholder="Enter your feedback here"></textarea>
+        <button id="submit-feedback-btn">Submit Feedback</button></div>
     </div>
   </div>
   <script src="script.js"></script>

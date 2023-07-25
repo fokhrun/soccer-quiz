@@ -31,8 +31,11 @@ const quizData = [
   const optionsElement = document.getElementById("options");
   const submitButton = document.getElementById("submit-btn");
   const resultContainer = document.getElementById("result-container");
+  const feedbackContainer = document.getElementById("feedback-container")
   const resultsList = document.getElementById("results");
   const restartButton = document.getElementById("restart-btn");
+  const finalButton = document.getElementById("final-btn");
+  const submitFeedbackButton = document.getElementById("submit-feedback-btn");
   
   let currentQuestion = 0;
   let score = 0;
@@ -52,19 +55,26 @@ const quizData = [
 
   
   function showQuestion() {
-    const currentQuizData = quizData[currentQuestion];
-    questionElement.textContent = currentQuizData.question;
-    optionsElement.innerHTML = "";
-    currentQuizData.options.forEach((option) => {
-      const label = document.createElement("label");
-      const radioInput = document.createElement("input");
-      radioInput.type = "radio";
-      radioInput.name = "answer";
-      radioInput.value = option;
-      label.appendChild(radioInput);
-      label.appendChild(document.createTextNode(option));
-      optionsElement.appendChild(label);
-    });
+    if (currentQuestion === quizData.length) {     
+        quizContainer.style.display = "none";
+        resultContainer.style.display = "block";
+        showResults();
+    }
+    else{
+        const currentQuizData = quizData[currentQuestion];
+        questionElement.textContent = currentQuizData["question"];
+        optionsElement.innerHTML = "";
+        currentQuizData.options.forEach((option) => {
+          const label = document.createElement("label");
+          const radioInput = document.createElement("input");
+          radioInput.type = "radio";
+          radioInput.name = "answer";
+          radioInput.value = option;
+          label.appendChild(radioInput);
+          label.appendChild(document.createTextNode(option));
+          optionsElement.appendChild(label);
+        });
+    }
   }
   
   function checkAnswer() {
@@ -76,28 +86,20 @@ const quizData = [
     const correctAnswer = currentQuizData.correctAnswer;
 
     if (userAnswer === correctAnswer) {
-        //feedbackElem.innerHTML = "<img src='images/correct.png' alt='Correct'>";  
+        resultsList.innerHTML = "<div id='result-image'><img src='images/correct.png' width='20' height='20' alt='Correct'></div>";  
         score++;
     }
-    /*else {
-        //feedbackElem.innerHTML = `<img src='images/incorrect.png' alt='Incorrect'><p>Correct answer: ${correctAnswer}</p>`;
-    }*/
+    else {
+        resultsList.innerHTML = `<div id='result-image'><img src='images/incorrect.png' width='25' height='25' alt='Incorrect'></div><p id='correct-answer-text'>Correct answer: ${correctAnswer}</p>`;
+    }
   
     currentQuestion++;
   
-    if (currentQuestion < quizData.length) {
+    if (currentQuestion <= quizData.length) {
       showQuestion();
-    } else {
-      showResults();
-    }
+    }    
   }
-  
-  function showResults() {
-    quizContainer.style.display = "none";
-    resultContainer.style.display = "block";
-    resultContainer.innerHTML = `<h2>Results:</h2><ul id="results"></ul> ${username} scored ${score} out of ${quizData.length}`;
-  }
-  
+
   function restartQuiz() {
     currentQuestion = 0;
     score = 0;
@@ -105,9 +107,32 @@ const quizData = [
     resultContainer.style.display = "none";
     showQuestion();
   }
+
+  function showResults() {
+    quizContainer.style.display = "none";
+    resultContainer.style.display = "block";
+    resultContainer.innerHTML = `
+        <div id="final-result"><h2>Final Results</h2>
+        <ul id="results"></ul> ${username} scored ${score} out of ${quizData.length}</div>        
+    `;
+
+    // Show the feedback container after showing results
+    feedbackContainer.style.display = "block";
+  }
+  
+  function submitFeedback() {
+    const feedbackTextarea = document.getElementById("feedback-textarea");
+    const feedback = feedbackTextarea.value.trim();
+    // Perform any action with the feedback, such as sending it to a server
+    alert("Thank you for your feedback!");
+    // Clear the feedback text area
+    feedbackTextarea.value = "";
+  }
   
   submitButton.addEventListener("click", checkAnswer);
   restartButton.addEventListener("click", restartQuiz);
+  finalButton.addEventListener("click", showResults);
+  submitFeedbackButton.addEventListener("click", submitFeedback);
   
   showQuestion();
   
