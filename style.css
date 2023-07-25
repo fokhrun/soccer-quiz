@@ -1,108 +1,124 @@
+/* Reset default margin and padding for all elements */
 * {
-    padding: 0;
     margin: 0;
+    padding: 0;
     box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
-  }
-  body {
-    background-color: #0a69ed;
-  }
-  .start-screen,
-  .score-container {
-    position: absolute;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-  button {
+}
+
+/* Set the background color for the whole page */
+body {
+    background-color: #f0f7ff; /* Light blue */
+    font-family: Arial, sans-serif;
+}
+
+/* Header styles */
+header {
+    background-color: #003399; /* Dark blue */
+    color: #ffffff; /* White text color */
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin-bottom: 10px;
+}
+
+/* Main quiz container */
+main {
+    margin: 20px auto;
+    max-width: 600px;
+    background-color: #ffffff; /* White */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Quiz question styles */
+#question {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* Quiz options styles */
+#options {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+input[type="radio"] {
+    margin-right: 8px;
+}
+
+/* Feedback styles */
+#feedback {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* Next button styles */
+#next-btn {
+    background-color: #003399; /* Dark blue */
+    color: #ffffff; /* White text color */
     border: none;
-    outline: none;
+    padding: 10px 20px;
+    font-size: 16px;
     cursor: pointer;
-  }
-  #start-button,
-  #restart {
-    font-size: 1.3em;
-    padding: 0.5em 1.8em;
-    border-radius: 0.2em;
-  }
-  #restart {
-    margin-top: 0.9em;
-  }
-  #display-container {
-    background-color: #ffffff;
-    padding: 3.1em 1.8em;
-    width: 80%;
-    max-width: 37.5em;
-    margin: 0 auto;
-    position: absolute;
-    transform: translate(-50%, -50%);
-    top: 50%;
-    left: 50%;
-    border-radius: 0.6em;
-  }
-  .header {
-    margin-bottom: 1.8em;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-bottom: 0.6em;
-    border-bottom: 0.1em solid #c0bfd2;
-  }
-  .timer-div {
-    background-color: #e1f5fe;
-    width: 7.5em;
-    border-radius: 1.8em;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0.7em 1.8em;
-  }
-  .question {
-    margin-bottom: 1.25em;
-    font-weight: 600;
-  }
-  .option-div {
-    font-size: 0.9em;
-    width: 100%;
-    padding: 1em;
-    margin: 0.3em 0;
-    text-align: left;
-    outline: none;
-    background: transparent;
-    border: 1px solid #c0bfd2;
-    border-radius: 0.3em;
-  }
-  .option-div:disabled {
-    color: #000000;
-    cursor: not-allowed;
-  }
-  #next-button {
-    font-size: 1em;
-    margin-top: 1.5em;
-    background-color: #0a69ed;
-    color: #ffffff;
-    padding: 0.7em 1.8em;
-    border-radius: 0.3em;
-    float: right;
-  }
-  .hide {
-    display: none;
-  }
-  .incorrect {
-    background-color: #ffdde0;
-    color: #d32f2f;
-    border-color: #d32f2f;
-  }
-  .correct {
-    background-color: #e7f6d5;
-    color: #689f38;
-    border-color: #689f38;
-  }
-  #user-score {
-    font-size: 1.5em;
-    color: #ffffff;
-  }
+    border-radius: 4px;
+}
+
+#next-btn:hover {
+    background-color: #0051a8; /* Slightly lighter blue on hover */
+}
+
+/* Score section styles */
+#score-section {
+    text-align: center;
+    padding: 20px;
+    background-color: #ffffff; /* White */
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+#score-section h2 {
+    margin-bottom: 10px;
+}
+
+#score {
+    font-size: 24px;
+    font-weight: bold;
+    color: #003399; /* Dark blue */
+}
+
+/* User section styles */
+#user-section {
+    text-align: center;
+    padding: 20px;
+}
+
+#username {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 4px;
+    border: 1px solid #003399; /* Dark blue */
+    margin-right: 10px;
+}
+
+button {
+    background-color: #003399; /* Dark blue */
+    color: #ffffff; /* White text color */
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+button:hover {
+    background-color: #0051a8; /* Slightly lighter blue on hover */
+}
