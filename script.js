@@ -1,4 +1,6 @@
+/*jshint esversion: 6 */
 // Sample quiz data
+
 const quizData = [
     {
         question: "Which country won the 2010 FIFA World Cup?",
@@ -64,7 +66,7 @@ const quizData = [
 function showQuestion() {
     submitButton.style.display = "block";    
     const currentQuizData = quizData[currentQuestion];
-    questionElement.textContent = `Q${currentQuestion+1}: ${currentQuizData["question"]}`;
+    questionElement.textContent = `Q${currentQuestion+1}: ${currentQuizData.question}`;
     optionsElement.innerHTML = "";
     currentQuizData.options.forEach((option) => {
         const label = document.createElement("label");
@@ -124,7 +126,7 @@ function checkAnswer() {
     scorecardContainer.innerHTML = "";
   
     // Display each incorrect answer in the scorecard
-    if (incorrectAnswers.length > 0 | currentQuestion < quizData.length) {
+    if (incorrectAnswers.length > 0 || currentQuestion < quizData.length) {
       incorrectAnswers.forEach((incorrectAnswer) => {
         const listItem = document.createElement("li");
         listItem.innerHTML = `<strong>Q: ${incorrectAnswer.question}</strong><br>
@@ -138,7 +140,7 @@ function checkAnswer() {
   
     // Display the final score
     const finalScore = document.getElementById("final-score");
-    usernameTitleCase = username.toLowerCase().charAt(0).toUpperCase() + username.slice(1);
+    let usernameTitleCase = username.toLowerCase().charAt(0).toUpperCase() + username.slice(1);
     finalScore.textContent = `${usernameTitleCase} final score: ${score} out of ${quizData.length}`;
   
     // Show the scorecard container
