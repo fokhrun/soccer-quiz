@@ -38,7 +38,7 @@ main {
     font-size: 18px;
     font-weight: bold;
     margin-bottom: 15px;
-}
+}  
 
 /* Quiz options styles */
 #options {
@@ -145,15 +145,17 @@ button:hover {
 }
 
 #final-result {
-    margin-top: 100px;
-    margin-left: 100px;
+    margin-top: 10px;
 }
 
 #results {
     margin-top: 10px;
 }
 
-/* Same as the previous styles.css */
+#scorecard-container {
+    margin-left: 50px;
+    margin-top: 20px;
+}
 
 #feedback-container {
     display: none;
@@ -161,27 +163,27 @@ button:hover {
     text-align: center;
   }
   
-  #feedback-container h2 {
+#feedback-container h2 {
     margin-bottom: 10px;
     color: #2c6faf;
-  }
+}
   
-  #feedback-textarea {
+#feedback-textarea {
     width: 100%;
     padding: 10px;
     resize: vertical;
-  }
+}
   
-  #submit-feedback-btn {
+#submit-feedback-btn {
     background-color: #2c6faf;
     color: #fff;
     padding: 10px 20px;
     border: none;
     cursor: pointer;
     margin-top: 10px;
-  }
+}
   
-  #submit-feedback-btn:hover {
+#submit-feedback-btn:hover {
     background-color: #17597e;
-  }
+}
   
