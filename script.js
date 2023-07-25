@@ -94,7 +94,7 @@ function checkAnswer() {
     }
     else {
         incorrectAnswers.push({question: currentQuizData.question, userAnswer, correctAnswer: currentQuizData.correctAnswer});
-        finalResultsList.innerHTML = `<div id='result-image'><img src='images/incorrect.png' width='25' height='25' alt='Incorrect'></div>`;
+        finalResultsList.innerHTML = `<div id='result-image'> Q${currentQuestion+1}: <img src='images/incorrect.png' width='25' height='25' alt='Incorrect'></div>`;
     }
   
     currentQuestion++;
@@ -152,7 +152,7 @@ function checkAnswer() {
   function submitFeedback() {
     const feedbackTextarea = document.getElementById("feedback-textarea");
     // Perform any action with the feedback, such as sending it to a server
-    alert("${username} Thank you for your feedback!");
+    alert(`${username} Thank you for your feedback!`);
     // Clear the feedback text area
     feedbackTextarea.value = "";
     feedbackContainer.style.display = "none";
