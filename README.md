@@ -14,7 +14,10 @@ This is a simple online quiz to test your knowledge in soccer. Users can create 
 
 ## Screenshots
 
+### Desktop
 ![Screenshot 1](screenshots/desktop-screenshot.png)
+
+### Mobile
 ![Screenshot 2](screenshots/mobile-screenshot.png)
 
 ## License
